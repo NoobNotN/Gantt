@@ -1,7 +1,7 @@
 export default class Base {
 
-    private readonly $store;
-    private readonly $option;
+    protected readonly $store;
+    protected readonly $option;
 
     constructor() {
         this.$store = window['noobnot_gantt'].store;
