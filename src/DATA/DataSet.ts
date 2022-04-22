@@ -11,13 +11,12 @@ export default class DataSet extends Base{
     constructor(option: O) {
         super();
 
-        this.$option.setOption(option);
+        this.$option.init(option);
 
         const { data } = option;
 
         // 格式化任务数组
         this.taskList = data.map((sourceTask:object) => new Task(sourceTask))
-
     }
 
 

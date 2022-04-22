@@ -10,10 +10,14 @@ export default class GanttDate extends Base{
     constructor(date: Date) {
         super();
         if (date){
+            // 格式化相对时间
+            const getDate = (key: any) => dayjs(date).diff(dayjs(this.$option.today), key);
+            [this.year,this.month,this.day] = ['year','month','day'].map((key:string)=>getDate(key));
 
-            this.day = dayjs(date).diff(dayjs(this.$option.today), 'days');
+            // 更新最早最晚时间
+            if (!dayjs(date).isAfter(this.$option.begin)) this.$option.begin = date;
+            if (!dayjs(date).isBefore(this.$option.end)) this.$option.end = date;
 
         }
-
     }
 }
