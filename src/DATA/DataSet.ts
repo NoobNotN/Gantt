@@ -7,15 +7,12 @@ export default class DataSet extends Base{
      * 任务数组
      */
     public taskList: Array<Task>;
-    /**
-     * 用户原始数据集
-     */
-    private userOption: any;
 
     constructor(option: O) {
         super();
 
-        this.userOption = option;
+        this.$option.setOption(option);
+
         const { data } = option;
 
         // 格式化任务数组

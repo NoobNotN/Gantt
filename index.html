@@ -95,8 +95,8 @@
             },
         }
     }
-    const columns = [
 
+    const columns = [
         {
             field: 'owner',
             label: '负责人'
@@ -106,9 +106,10 @@
             label: '任务名儿'
         },
     ]
+
     const gantt = new Gantt.default('container', {
-        startDateField: 'start',
-        endDateField: 'end',
+        startField: 'start',
+        endField: 'end',
         taskField: 'tasks',
         data,
         columns,

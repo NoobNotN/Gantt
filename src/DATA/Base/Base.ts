@@ -1,4 +1,5 @@
-import {option} from "./Store";
+import store from "./Store";
+import option from "./Option";
 
 
 export default class Base {
@@ -7,7 +8,7 @@ export default class Base {
     protected readonly $option;
 
     constructor() {
-        this.$store = option;
+        this.$store = store;
         this.$option = option;
     }
 
