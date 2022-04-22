@@ -1,0 +1,33 @@
+{
+  "name": "@noobnot/gantt-chart",
+  "version": "0.0.1",
+  "description": "A gantt chart",
+  "main": "dist/gantt.min.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NoobNotN/Gantt.git"
+  },
+  "keywords": [
+    "gantt"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@antv/g": "^5.0.6",
+    "@antv/g-canvas": "^1.0.5",
+    "@antv/gui": "^0.3.3",
+    "dayjs": "^1.10.7"
+  },
+  "devDependencies": {
+    "limit-size": "^0.1.4",
+    "rimraf": "^3.0.2",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.2",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.6.0"
+  }
+}
