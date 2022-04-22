@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>spreadsheet: high performance spreadsheet based on antv G.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            /*background: antiquewhite;*/
+        }
+
+        #container {
+            margin: 80px;
+            width: 90%;
+            height: 500px;
+            /*background-color: aliceblue;*/
+        }
+
+    </style>
+</head>
+
+<body>
+<div id="container"></div>
+<script src="https://unpkg.com/stats.js@0.17.0/build/stats.min.js" type="application/javascript"></script>
+<script src="./gantt.min.js" type="application/javascript"></script>
+<script>
+    const data = [{
+        tasks: {
+            name:'这是一个超长的名字测试，多写点字测试下吧',
+            owner:'aabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbddddd',
+            asd:'hhh',
+        },
+        start: '2021-04-20',
+        end: '2022-04-30',
+        milestone:[
+            {time:'2021-04-30'}
+        ]
+    }, {
+        tasks: '项目2',
+        start: '2021-05-01',
+        end: '2022-05-30',
+    }, {
+        tasks: '项目3',
+        start: '2021-08-01',
+        end: '2022-05-12',
+    },{
+        tasks: '项目4',
+        start: '2022-04-01',
+        end: '2022-04-30',
+    }, {
+        tasks: '项目5',
+        start: '2022-05-01',
+        end: '2022-05-30',
+    }, {
+        tasks: '项目6',
+        start: '2022-05-01',
+        end: '2022-05-12',
+    },{
+        tasks: '项目7',
+        start: '2022-04-01',
+        end: '2022-04-30',
+    }];
+
+    const tooltip = {
+        content: (data) => {
+            return JSON.stringify(data)
+        },
+        width: 200,
+        height: 100
+    }
+    // const infoTooltip = {
+    //     content: (data) => {
+    //         return '====info====<br>'+JSON.stringify(data)
+    //     },
+    //     width: 200,
+    //     height: 100
+    // }
+    const milestoneOption = {
+        field:'milestone',
+        timeField:'time',
+        tooltip:{
+            width: 200,
+            height: 100,
+            content: (data) => {
+                return JSON.stringify(data);
+            },
+        }
+    }
+    const columns = [
+
+        {
+            field: 'owner',
+            label: '负责人'
+        },
+        {
+            field: 'name',
+            label: '任务名儿'
+        },
+    ]
+    const gantt = new Gantt.default('container', {
+        startDateField: 'start',
+        endDateField: 'end',
+        taskField: 'tasks',
+        data,
+        columns,
+        milestoneOption,
+        tooltip,
+        // infoTooltip,
+    });
+
+    gantt.render();
+
+    window.gantt = gantt;
+
+    window.addEventListener('resize', function() {
+      gantt.resize();
+    });
+    // console.log(option)
+</script>
+</body>
+
+</html>
